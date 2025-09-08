@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | NeuroHire</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="NeuroHire Logo" class="logo" />
+    <h1>NeuroHire</h1>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="apply.html">Apply</a>
+      <a href="signin.html">Sign In</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Welcome to NeuroHire</h2>
+    <p>Your AI-powered gateway to career success.</p>
+    <a href="jobs.html" class="cta-button">Browse Jobs</a>
+  </section>
+
+  <section class="features">
+    <h3>Why Choose Us?</h3>
+    <ul>
+      <li>🤖 AI-driven job matching</li>
+      <li>🌍 Global opportunities</li>
+      <li>⚡ Fast application process</li>
+    </ul>
+  </section>
+
+  <section class="testimonials">
+    <h3>What Our Users Say</h3>
+    <div class="testimonial">
+      <p>"NeuroHire helped me land my first tech job in just two weeks!"</p>
+      <span>- Priya, Frontend Developer</span>
+    </div>
+    <div class="testimonial">
+      <p>"The AI recommendations were spot-on. Highly recommended!"</p>
+      <span>- Arjun, Data Analyst</span>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <h3>Stay Updated</h3>
+    <p>Subscribe to our newsletter for job alerts and career tips.</p>
+    <form id="newsletterForm">
+  <input type="email" placeholder="Enter your email" required />
+  <button type="submit" id="subscribeBtn">Subscribe</button>
+<form>
+<p id="subscribeMessage" style="display:none; color: green; margin-top: 10px;"></p>
+</form>
+
+  </section>
+
+  <footer>
+  <p>&copy; 2025 NeuroHire</p>
+  <div class="social-links">
+    <a href="https://www.linkedin.com/company/neurohire" target="_blank">LinkedIn</a> |
+    <a href="https://www.instagram.com/neurohire" target="_blank">Instagram</a> |
+    <a href="https://www.facebook.com/neurohire" target="_blank">Facebook</a>
+  </div>
+</footer>
+<script>
+  document.getElementById("newsletterForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent page reload
+
+    const emailInput = this.querySelector("input[type='email']");
+    const message = document.getElementById("subscribeMessage");
+
+    if (emailInput.value.trim() !== "") {
+      message.textContent = "✅ Thank you for subscribing!";
+      message.style.display = "block";
+      emailInput.value = ""; // Clear the input
+    } else {
+      message.textContent = "⚠️ Please enter a valid email.";
+      message.style.display = "block";
+    }
+  });
+</script>
+
+
+</body>
+</html>

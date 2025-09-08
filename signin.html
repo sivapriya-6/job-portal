@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In | NeuroHire</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="NeuroHire Logo" class="logo" />
+    <h1>NeuroHire</h1>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="apply.html">Apply</a>
+      <a href="signin.html">Sign In</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="signin-container">
+      <h2>Sign In to NeuroHire</h2>
+      <form id="signinForm">
+        <input type="email" id="email" placeholder="Email" required />
+        
+        <div style="position: relative;">
+          <input type="password" id="password" placeholder="Password" required />
+          <span id="togglePassword" style="position:absolute; right:10px; top:10px; cursor:pointer;">👁️</span>
+        </div>
+
+        <div style="margin: 10px 0;">
+          <label>
+            <input type="checkbox" id="rememberMe" />
+            Remember Me
+          </label>
+        </div>
+
+        <a href="#" style="font-size: 14px; color: #0078d4;">Forgot Password?</a>
+
+        <button type="submit">Sign In</button>
+        <p id="signinMessage" style="display:none; color: green; margin-top: 10px;">✅ Signed in successfully!</p>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 NeuroHire</p>
+  </footer>
+
+  <script>
+    // Toggle password visibility
+    document.getElementById("togglePassword").addEventListener("click", function () {
+      const passwordField = document.getElementById("password");
+      const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+      passwordField.setAttribute("type", type);
+    });
+
+    // Handle form submission
+    document.getElementById("signinForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      if (!email || !password) {
+        alert("Please fill in both fields.");
+        return;
+      }
+
+      document.getElementById("signinMessage").style.display = "block";
+      this.reset();
+    });
+  </script>
+</body>
+</html>

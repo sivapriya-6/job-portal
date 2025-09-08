@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jobs | NeuroHire</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="NeuroHire Logo" class="logo" />
+    <h1>NeuroHire</h1>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="apply.html">Apply</a>
+      <a href="signin.html">Sign In</a>
+    </nav>
+  </header>
+
+  <section class="job-search">
+    <h2>Explore Opportunities</h2>
+    <input type="text" placeholder="Search by role or location..." />
+  </section>
+
+  <section class="job-categories">
+    <h3>Categories</h3>
+    <ul>
+      <li><a href="#">Engineering</a></li>
+      <li><a href="#">Design</a></li>
+      <li><a href="#">Marketing</a></li>
+      <li><a href="#">Remote Jobs</a></li>
+    </ul>
+  </section>
+
+  <section class="jobs">
+    <h3>Available Positions</h3>
+
+    <div class="job-card">
+      <h4>AI Engineer</h4>
+      <p>📍 Hyderabad | 🧠 2+ years experience</p>
+      <p>Build intelligent systems using NLP and ML models.</p>
+      <a href="apply.html" class="apply-button">Apply Now</a>
+    </div>
+
+    <div class="job-card">
+      <h4>UI/UX Designer</h4>
+      <p>📍 Remote | 🎨 1+ years experience</p>
+      <p>Design intuitive interfaces for web and mobile platforms.</p>
+      <a href="apply.html" class="apply-button">Apply Now</a>
+    </div>
+
+    <div class="job-card">
+      <h4>Digital Marketing Executive</h4>
+      <p>📍 Chennai | 📈 Fresher</p>
+      <p>Manage campaigns and optimize SEO/SEM strategies.</p>
+      <a href="apply.html" class="apply-button">Apply Now</a>
+    </div>
+
+    <div class="job-card">
+      <h4>Backend Developer</h4>
+      <p>📍 Bangalore | 💻 3+ years experience</p>
+      <p>Develop scalable APIs and manage cloud infrastructure.</p>
+      <a href="apply.html" class="apply-button">Apply Now</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 NeuroHire</p>
+    <div class="social-links">
+      <a href="#">LinkedIn</a> |
+      <a href="#">Twitter</a> |
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+  <script>
+  const jobs = [
+    {
+      title: "AI Engineer",
+      location: "Hyderabad",
+      experience: "2+ years",
+      description: "Build intelligent systems using NLP and ML models."
+    },
+    {
+      title: "UI/UX Designer",
+      location: "Remote",
+      experience: "1+ years",
+      description: "Design intuitive interfaces for web and mobile platforms."
+    },
+    {
+      title: "Digital Marketing Executive",
+      location: "Chennai",
+      experience: "Fresher",
+      description: "Manage campaigns and optimize SEO/SEM strategies."
+    },
+    {
+      title: "Backend Developer",
+      location: "Bangalore",
+      experience: "3+ years",
+      description: "Develop scalable APIs and manage cloud infrastructure."
+    },
+    {
+      title: "Software Developer",
+      location: "Pune",
+      experience: "2+ years",
+      description: "Develop and maintain web applications using JavaScript and React."
+    },
+    {
+      title: "Data Analyst",
+      location: "Mumbai",
+      experience: "1+ years",
+      description: "Analyze datasets to uncover trends and support business decisions."
+    },
+    {
+      title: "DevOps Engineer",
+      location: "Remote",
+      experience: "3+ years",
+      description: "Automate deployment pipelines and manage CI/CD workflows."
+    },
+    {
+      title: "Content Writer",
+      location: "Kolkata",
+      experience: "Fresher",
+      description: "Create engaging content for blogs, websites, and social media."
+    }
+  ];
+
+  const jobContainer = document.querySelector(".jobs");
+  const searchInput = document.querySelector(".job-search input");
+
+  // Function to render job cards
+  function renderJobs(filteredJobs) {
+    jobContainer.innerHTML = `<h3>Available Positions</h3>`; // Reset with heading
+    if (filteredJobs.length === 0) {
+      jobContainer.innerHTML += `<p>No jobs found matching your search.</p>`;
+      return;
+    }
+
+    filteredJobs.forEach(job => {
+      const jobCard = document.createElement("div");
+      jobCard.className = "job-card";
+      jobCard.innerHTML = `
+        <h4>${job.title}</h4>
+        <p>📍 ${job.location} | 🧠 ${job.experience} experience</p>
+        <p>${job.description}</p>
+        <a href="apply.html" class="apply-button">Apply Now</a>
+      `;
+      jobContainer.appendChild(jobCard);
+    });
+  }
+
+  // Initial render
+  renderJobs(jobs);
+
+  // Search functionality
+  searchInput.addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+    const filtered = jobs.filter(job =>
+      job.title.toLowerCase().includes(query) ||
+      job.location.toLowerCase().includes(query)
+    );
+    renderJobs(filtered);
+  });
+  </script>
+  <script src="jobs.js"></script>
+
+
+
+
+
+</body>
+</html>
